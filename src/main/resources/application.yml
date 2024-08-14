@@ -1,0 +1,12 @@
+server:
+  port: 1200
+spring:
+  application:
+    name: tech-trekker
+  datasource:
+    url: "jdbc:mysql://localhost/blog"
+    username: "root"
+    password:  "root"
+  jpa:
+    hibernate:
+      ddl-auto: update
