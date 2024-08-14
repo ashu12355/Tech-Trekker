@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head data-th-replace="~{fragment/basic-fragment :: head}">
+    
+</head>
+<body>
+    <header data-th-replace="~{fragment/basic-fragment :: header}">
+
+    </header>
+    <nav data-th-replace="~{fragment/basic-fragment :: nav}">
+       
+    </nav>
+
+    <section>
+        <form action="/signup" method="post" enctype="multipart/form-data">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="writerName" required>
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div class="form-group">
+            <label for="profession">Profession</label>
+            <input type="text" name="writerProfession" required>
+        </div>
+        <div class="form-group">
+            <label for="profile-pic">Picture</label>
+            <input type="file" id="profile-pic" required>
+        </div>
+
+        <div>
+            <input type="submit">
+        </div>
+        </form>
+    </section>
+    
+</body>
+</html>
