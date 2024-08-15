@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head data-th-replace="~{fragment/basic-fragment :: head}">
-    
+<head data-th-replace="~{fragment/basic-fragment :: head}">   
 </head>
 <body>
     <header data-th-replace="~{fragment/basic-fragment :: header}">
-
     </header>
-    <nav data-th-replace="~{fragment/basic-fragment :: nav}">
-       
+    <nav data-th-replace="~{fragment/basic-fragment :: nav}">    
     </nav>
-
     <section>
         <form action="/signup" method="post" enctype="multipart/form-data">
         <div class="form-group">
@@ -33,7 +29,6 @@
             <label for="profile-pic">Picture</label>
             <input type="file" id="profile-pic" required>
         </div>
-
         <div>
             <input type="submit">
         </div>
