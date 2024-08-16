@@ -7,7 +7,9 @@ public record WriterRequest(
     String email,
     String password,
     String writerProfession,
-    MultipartFile profilePicture){
+    MultipartFile profilePicture
+   
+    ){
 }
 
 //here i get it from the form

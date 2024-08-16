@@ -1,6 +1,8 @@
 package org.ashu.tech_trekker.controller;
 
+import org.ashu.tech_trekker.dto.BlogRequest;
 import org.ashu.tech_trekker.dto.WriterRequest;
+import org.ashu.tech_trekker.mapper.BlogMapper;
 import org.ashu.tech_trekker.mapper.WriterMapper;
 import org.ashu.tech_trekker.model.WriterInfo;
 import org.ashu.tech_trekker.service.TechTrekkerService;
@@ -10,6 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 @Controller
 @RequiredArgsConstructor
@@ -38,6 +42,14 @@ public class TechTrekkerController {
         return "redirect:/home";
 
     }
+    @PostMapping("/create-blog")
+    public String addBlog(@ModelAttribute BlogRequest request) {
+    
+        var blog = BlogMapper.convertRequest(request);
+        service.createBlog(blog);
+        return "redirect:/home";
+    }
+    
 
     
 }
