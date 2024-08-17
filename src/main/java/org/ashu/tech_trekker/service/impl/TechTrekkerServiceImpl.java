@@ -1,5 +1,7 @@
 package org.ashu.tech_trekker.service.impl;
 
+import java.util.List;
+
 import org.ashu.tech_trekker.model.Blog;
 import org.ashu.tech_trekker.model.WriterInfo;
 import org.ashu.tech_trekker.repository.BlogRepository;
@@ -23,6 +25,14 @@ public class TechTrekkerServiceImpl implements TechTrekkerService {
         public void createBlog(Blog blog) {
         blogrepository.save(blog);
             
+        }
+        @Override
+        public List<Blog> getBlogs() {
+            return blogrepository.findAll(); // it gives all the data
+        }
+        @Override
+        public Blog getBlogById(String id) {
+           return blogrepository.findById(id).orElseThrow();
         }
     }
 

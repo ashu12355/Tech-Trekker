@@ -1,18 +1,25 @@
 package org.ashu.tech_trekker.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.ashu.tech_trekker.dto.BlogRequest;
+import org.ashu.tech_trekker.dto.BlogResponse;
+import org.ashu.tech_trekker.dto.HomePageResponse;
 import org.ashu.tech_trekker.dto.WriterRequest;
 import org.ashu.tech_trekker.mapper.BlogMapper;
 import org.ashu.tech_trekker.mapper.WriterMapper;
-import org.ashu.tech_trekker.model.WriterInfo;
+import org.ashu.tech_trekker.model.Blog;
 import org.ashu.tech_trekker.service.TechTrekkerService;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @Controller
@@ -21,7 +28,18 @@ public class TechTrekkerController {
     private final TechTrekkerService service;
 
     @GetMapping({"/","home"})
-    public String home() {
+    public String home(Model model) {
+        List<Blog> blogs = service.getBlogs();
+        // List<HomePageResponse> details = blogs
+        // .stream().map(BlogMapper :: converBlogToHome).toList();
+        //or
+
+        List<HomePageResponse> details = new ArrayList<>();
+        for(Blog blog : blogs){
+            details.add(BlogMapper.converBlogToHome(blog));
+        }
+
+        model.addAttribute("blogs", details);
         return "home";
     }
     
@@ -49,7 +67,11 @@ public class TechTrekkerController {
         service.createBlog(blog);
         return "redirect:/home";
     }
-    
+    @GetMapping("/blog-details")
+    public String blogDetails(@RequestParam String id, Model model) {
+        var blog = service.getBlogById(id);
+        model.addAttribute("blog",BlogMapper.convertBlogToResponse(blog));
+        return "blog-details";
 
-    
+    }
 }
