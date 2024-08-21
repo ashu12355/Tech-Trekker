@@ -15,3 +15,9 @@ spring:
     properties:
       hibernate:
         format_sql: true
+
+upload:
+  file:
+    profile: "profile_images"
+    blog:
+      banner: "blog_banner_images"        

@@ -10,7 +10,11 @@
 
     </nav>
     <section>
+        <h2>Create New Blog</h2>
+        <hr>
         <form action="/create-blog" method="post" enctype="multipart/form-data">
+
+            
 
             <div class="form-group">
                 <label for="title">Title</label>
@@ -21,6 +25,15 @@
                 <label for="description">Description</label>
                 <textarea id="description" name="description" required></textarea>
             </div>
+
+          <div class="form-group">
+            <label for="category">Select Category</label>
+            <select name="category" id="category">
+                <option value="FRONTEND">Frontend</option>
+                <option value="BACKEND">Backend</option>
+                <option value="DATABASE">Database</option>
+            </select>
+          </div>
 
             <div class="form-group">
                 <label for="banner">Banner</label>
