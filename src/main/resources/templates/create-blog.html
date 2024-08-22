@@ -3,6 +3,7 @@
 <head data-th-replace="~{fragment/basic-fragment :: head}">
 </head>
 <body>
+    <link rel="stylesheet" href="/css/create-blog.css">
     <header data-th-replace="~{fragment/basic-fragment :: header}">
 
     </header>
@@ -36,7 +37,10 @@
           </div>
 
             <div class="form-group">
-                <label for="banner">Banner</label>
+                <div class="banner-preview">
+                    <label for="banner">Select a Banner</label>
+                </div>
+                
                 <input type="file" id="banner" name="banner" required>
             </div>
 
@@ -45,6 +49,9 @@
             </div>
         </form>
     </section>
+    <script src="/js/create-blog.js">
+        
+    </script>
 
 </body>
 

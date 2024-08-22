@@ -1,0 +1,26 @@
+.banner-preview {
+    height: 200px;
+    width: 200px;
+    background-color:#ccc ;
+    
+    box-sizing: border-box;
+    display: grid;
+    place-items: center;
+}
+
+.banner-preview label {
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.banner-preview:has(img) {
+    display: block;
+}
+.banner-preview img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center;
+}

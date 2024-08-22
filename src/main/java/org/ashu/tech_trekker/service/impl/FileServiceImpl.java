@@ -1,6 +1,8 @@
 package org.ashu.tech_trekker.service.impl;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.util.UUID;
 
 import org.ashu.tech_trekker.service.FileService;
 import org.springframework.beans.factory.annotation.Value;
@@ -31,14 +33,12 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public String uploadprofilePicture(MultipartFile file) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'uploadprofilePicture'");
+        return uploadImage(file, profileDir);
     }
 
     @Override
     public String uploadBlogBanner(MultipartFile file) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'uploadBlogBanner'");
+        return uploadImage(file, bannerDir);
     }
 
     @Override
@@ -62,6 +62,29 @@ public class FileServiceImpl implements FileService {
             return;
         }
         log.info(dir+" already Exists");
+    }
+    private String uploadImage(MultipartFile file , String dir) {
+        if(!file.isEmpty()) {
+            String originalName = file.getOriginalFilename();
+            String customName = getCustomName(originalName);
+
+            try{
+                var fos =  new FileOutputStream(dir + File.separator + customName);
+                fos.write(file.getBytes());
+                fos.close();
+                return customName;
+            } catch(Exception e){
+                throw new RuntimeException(e);
+            }
+        }
+        throw new RuntimeException("Image Not found");
+    }
+
+    private String getCustomName(String fileName) {
+        String extension = fileName.substring(fileName.lastIndexOf("."));
+        String customName = UUID.randomUUID().toString();
+
+        return customName + extension;
     }
     
 }

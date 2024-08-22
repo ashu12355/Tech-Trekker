@@ -11,6 +11,7 @@ import org.ashu.tech_trekker.mapper.BlogMapper;
 import org.ashu.tech_trekker.mapper.WriterMapper;
 import org.ashu.tech_trekker.model.Blog;
 import org.ashu.tech_trekker.service.TechTrekkerService;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -62,9 +63,11 @@ public class TechTrekkerController {
     }
     @PostMapping("/create-blog")
     public String addBlog(@ModelAttribute BlogRequest request) {
+        // log.info("Blog data received: name={} description={}",request.title(),request.description());
     
         var blog = BlogMapper.convertRequest(request);
-        service.createBlog(blog);
+        service.createBlog(blog,request.banner());
+
         return "redirect:/home";
     }
     @GetMapping("/blog-details")
