@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
 public class TechTrekkerApplication {
-
+	
 	public static void main(String[] args) {
 		SpringApplication.run(TechTrekkerApplication.class, args);
 	}

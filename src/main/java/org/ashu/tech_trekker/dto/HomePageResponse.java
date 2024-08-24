@@ -7,5 +7,6 @@ public class HomePageResponse {
 
     private String blogId;
     private String title;
+    private String banner;
     
 }

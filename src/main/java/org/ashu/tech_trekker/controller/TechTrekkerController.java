@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.ashu.tech_trekker.dto.BlogRequest;
-import org.ashu.tech_trekker.dto.BlogResponse;
 import org.ashu.tech_trekker.dto.HomePageResponse;
 import org.ashu.tech_trekker.dto.WriterRequest;
 import org.ashu.tech_trekker.mapper.BlogMapper;
@@ -18,6 +17,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
 
 import lombok.RequiredArgsConstructor;
 
@@ -68,7 +68,7 @@ public class TechTrekkerController {
         var blog = BlogMapper.convertRequest(request);
         service.createBlog(blog,request.banner());
 
-        return "redirect:/home";
+        return "create-blog";
     }
     @GetMapping("/blog-details")
     public String blogDetails(@RequestParam String id, Model model) {
@@ -77,4 +77,6 @@ public class TechTrekkerController {
         return "blog-details";
 
     }
+
+    
 }

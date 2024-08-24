@@ -1,6 +1,7 @@
 package org.ashu.tech_trekker.service.impl;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.UUID;
 
@@ -43,14 +44,12 @@ public class FileServiceImpl implements FileService {
 
     @Override
     public byte[] getProfilePicture(String fileName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getProfilePicture'");
+       return getImage(profileDir, fileName);
     }
 
     @Override
     public byte[] getBlogBanner(String fileName) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getBlogBanner'");
+        return getImage(bannerDir, fileName);
     }
 
     private void createDirectory(String dir) {
@@ -79,7 +78,14 @@ public class FileServiceImpl implements FileService {
         }
         throw new RuntimeException("Image Not found");
     }
-
+    private byte[] getImage(String dir , String fileName){
+        String location = dir + File.separator + fileName;
+        try(var fis = new FileInputStream(location)){
+            return fis.readAllBytes();
+        }catch(Exception e) {
+            throw new RuntimeException();
+        }
+    }
     private String getCustomName(String fileName) {
         String extension = fileName.substring(fileName.lastIndexOf("."));
         String customName = UUID.randomUUID().toString();

@@ -39,5 +39,12 @@ public class TechTrekkerServiceImpl implements TechTrekkerService {
         public Blog getBlogById(String id) {
            return blogrepository.findById(id).orElseThrow();
         }
+
+        @Override
+        public byte[] getBanner(String blogId) {
+            var blog = getBlogById(blogId);
+            var banner = blog.getBanner();
+            return fileService.getBlogBanner(banner);
+        }
     }
 

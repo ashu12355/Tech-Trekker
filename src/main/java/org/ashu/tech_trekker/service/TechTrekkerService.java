@@ -14,4 +14,6 @@ public interface TechTrekkerService {
 
     Blog getBlogById(String id);
     
+    byte[] getBanner(String blogId);
+    
 }
