@@ -4,6 +4,7 @@
     
 </head>
 <body>
+    <link rel="stylesheet" href="/css/home/recent-section.css">
     <header data-th-replace="~{fragment/basic-fragment :: header}">
 
     </header>
@@ -12,12 +13,17 @@
     </nav>
     <main data-th-object="${response}">
         <!-- Recent Blogs -->
-        <section>
-            <article data-th-each="blog : ${recentBlogs}" data-th-object="${blog}">
-            <h4 data-th-text="*{title}"></h4>
-            <img data-th-src="|/blog/image/*{blogId}|" alt="">
-            <br>
+        <section class="recent-blog-section">
+            <article data-th-each="blog : *{recentBlogs}" data-th-object="${blog}">
+           
+            <div class="img-container">
+                <img data-th-src="|/blog/image/*{blogId}|" alt="">
+            </div>
+            
+            <div class="details-container">
+                <p data-th-text="*{title}"></p>
             <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
+            </div>
         </article>
         </section>
         <!-- Frontend Blogs -->
