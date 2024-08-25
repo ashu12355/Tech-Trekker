@@ -1,8 +1,11 @@
 package org.ashu.tech_trekker.mapper;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.ashu.tech_trekker.dto.BasicBlogInfo;
 import org.ashu.tech_trekker.dto.BlogRequest;
 import org.ashu.tech_trekker.dto.BlogResponse;
-import org.ashu.tech_trekker.dto.HomePageResponse;
 import org.ashu.tech_trekker.model.Blog;
 import org.springframework.beans.BeanUtils;
 
@@ -19,11 +22,14 @@ public class BlogMapper  {
         return response;
     }
 
-    public static HomePageResponse converBlogToHome(Blog blog) {
-        var homePageResponse = new HomePageResponse();
-        BeanUtils.copyProperties(blog, homePageResponse);
-        return homePageResponse;
+    public static List<BasicBlogInfo> converBlogsToBasic(List<Blog> blogs) {
+        var list = new ArrayList<BasicBlogInfo>();
 
+        for(Blog blog : blogs) {
+        var basicBlogInfo = new BasicBlogInfo();
+        BeanUtils.copyProperties(blog, basicBlogInfo);
+        list.add(basicBlogInfo);
     }
-
+    return list;
+    }
 }

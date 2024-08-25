@@ -2,12 +2,14 @@ package org.ashu.tech_trekker.service;
 
 import java.util.List;
 
+import org.ashu.tech_trekker.constant.BlogCategory;
 import org.ashu.tech_trekker.model.Blog;
 import org.ashu.tech_trekker.model.WriterInfo;
 import org.springframework.web.multipart.MultipartFile;
 
 public interface TechTrekkerService {
     void createWriter(WriterInfo info);
+
     void createBlog(Blog blog, MultipartFile file);
 
     List<Blog> getBlogs();
@@ -15,5 +17,9 @@ public interface TechTrekkerService {
     Blog getBlogById(String id);
     
     byte[] getBanner(String blogId);
+
+    List<Blog> getTop5Blogs();
+
+    List<Blog> limitedBlogOfCategory(BlogCategory category, int limit);
     
 }

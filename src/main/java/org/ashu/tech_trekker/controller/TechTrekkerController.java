@@ -1,14 +1,13 @@
 package org.ashu.tech_trekker.controller;
 
-import java.util.ArrayList;
-import java.util.List;
 
+import static org.ashu.tech_trekker.mapper.BlogMapper.*;
+import org.ashu.tech_trekker.constant.BlogCategory;
 import org.ashu.tech_trekker.dto.BlogRequest;
 import org.ashu.tech_trekker.dto.HomePageResponse;
 import org.ashu.tech_trekker.dto.WriterRequest;
 import org.ashu.tech_trekker.mapper.BlogMapper;
 import org.ashu.tech_trekker.mapper.WriterMapper;
-import org.ashu.tech_trekker.model.Blog;
 import org.ashu.tech_trekker.service.TechTrekkerService;
 
 import org.springframework.stereotype.Controller;
@@ -30,17 +29,18 @@ public class TechTrekkerController {
 
     @GetMapping({"/","home"})
     public String home(Model model) {
-        List<Blog> blogs = service.getBlogs();
-        // List<HomePageResponse> details = blogs
-        // .stream().map(BlogMapper :: converBlogToHome).toList();
-        //or
+        var recentBlogs = converBlogsToBasic(service.getTop5Blogs());
+       var backendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.FRONTEND, 2));
+       var frontendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.BACKEND, 3));
+       var databaseBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.DATABASE, 1));
 
-        List<HomePageResponse> details = new ArrayList<>();
-        for(Blog blog : blogs){
-            details.add(BlogMapper.converBlogToHome(blog));
-        }
-
-        model.addAttribute("blogs", details);
+       var homePageResponse = new HomePageResponse();
+       homePageResponse.setRecentBlogs(recentBlogs);
+       homePageResponse.setBackendBlogs(backendBlogs);
+       homePageResponse.setFrontendBlogs(backendBlogs);
+       homePageResponse.setDatabaseBlogs(databaseBlogs);
+       
+       model.addAttribute("response", homePageResponse);
         return "home";
     }
     

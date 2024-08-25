@@ -10,16 +10,46 @@
     <nav data-th-replace="~{fragment/basic-fragment :: nav}">
        
     </nav>
-    <main>
+    <main data-th-object="${response}">
+        <!-- Recent Blogs -->
         <section>
-            <article data-th-each="blog : ${blogs}" data-th-object="${blog}">
+            <article data-th-each="blog : ${recentBlogs}" data-th-object="${blog}">
             <h4 data-th-text="*{title}"></h4>
             <img data-th-src="|/blog/image/*{blogId}|" alt="">
             <br>
             <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
         </article>
         </section>
+        <!-- Frontend Blogs -->
         
+        <section>
+            <article data-th-each="blog : *{frontendBlogs}" data-th-object="${blog}">
+            <h4 data-th-text="*{title}"></h4>
+            <img data-th-src="|/blog/image/*{blogId}|" alt="">
+            <br>
+            <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
+        </article>
+        </section>
+
+        <!-- Backend Blogs -->
+        <section>
+            <article data-th-each="blog : *{backendBlogs}" data-th-object="${blog}">
+            <h4 data-th-text="*{title}"></h4>
+            <img data-th-src="|/blog/image/*{blogId}|" alt="">
+            <br>
+            <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
+        </article>
+        </section>
+
+        <!-- Database Blogs -->
+        <section>
+            <article data-th-each="blog : *{databaseBlogs}" data-th-object="${blog}">
+            <h4 data-th-text="*{title}"></h4>
+            <img data-th-src="|/blog/image/*{blogId}|" alt="">
+            <br>
+            <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
+        </article>
+        </section>
     </main>
     
 </body>
