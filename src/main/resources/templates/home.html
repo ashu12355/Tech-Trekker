@@ -4,7 +4,10 @@
     
 </head>
 <body>
+    
     <link rel="stylesheet" href="/css/home/recent-section.css">
+    <link rel="stylesheet" href="/css/home/home.css">
+
     <header data-th-replace="~{fragment/basic-fragment :: header}">
 
     </header>
@@ -20,8 +23,8 @@
                 <img data-th-src="|/blog/image/*{blogId}|" alt="">
             </div>
             
-            <div class="detail-container">
-                <p data-th-text="*{title}"></p>
+            <div class="details-container">
+                <p data-th-text="*{title}" class="line-clamp-2"></p>
             <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
             </div>
         </article>

@@ -27,7 +27,8 @@
 .recent-blog-section article {
   position: relative;
 }
-.recent-blog-section article .detail-container {
+
+.recent-blog-section article .details-container {
   height: 10px 0px;
   position: absolute;
   bottom: 0;
@@ -37,13 +38,14 @@
   color: aliceblue;
   padding: 0.5rem;
 }
-.recent-blog-section article .detail-container a {
+
+.recent-blog-section article .details-container a {
   margin-top: 0.5rem;
   background-color: royalblue;
   color: #f1f1f1;
   text-decoration: none;
   display: inline-block;
   padding: 0.5rem, 1.5rem;
-  border-radius: 0.5rem;
+  border-radius: 0.1rem;
   font-size: small;
 }

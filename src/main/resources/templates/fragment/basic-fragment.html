@@ -4,16 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TechTrekker</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="/js/common.js" defer></script>
+   
     <link rel="stylesheet" href="/css/base.css">
 </head>
 <body>
     <header data-th-fragment="header" >
-        <h1>TechTrekker</h1>
+      <a href="/home" class="logo-link">
+        <h1><span class="text-color-blue">Tech</span>Trekker</h1>
+    </a>
             <div class="links">
-                <a href="/create-blog">Create</a>
-                <a href="/signup">SignUp</a>
+                <button id="menu-btn">
+                    <span class="material-symbols-outlined">
+                        account_circle
+                        </span>
+                        <span class="material-symbols-outlined">
+                            menu
+                            </span>
+                </button>
+                <menu class="d-none">
+                    <li><a href="/create-blog">Create</a></li>
+                    <li><a href="/signup">SignUp</a></li>
+                   
+                </menu>
      </div>
     </header>
+
     <nav data-th-fragment="nav">
         <a href="#">Home</a>
         <a href="#">Frontend</a>
