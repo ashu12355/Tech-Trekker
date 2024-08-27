@@ -1,0 +1,26 @@
+.frontend-blogs {
+    margin-block: 1rem;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 1rem;
+}
+.frontend-blogs .image-container {
+     height: 250px;
+}
+.frontend-blogs article{
+    position: relative;
+}
+.frontend-blogs .title-container {
+    padding: 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 10px 20px 20px rgba(0,0,0,0.3);
+    height: 100px;
+    border-top-left-radius: 1.5rem;
+    border-top-right-radius:1.5rem ;
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+}

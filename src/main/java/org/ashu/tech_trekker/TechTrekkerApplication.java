@@ -19,5 +19,5 @@ public class TechTrekkerApplication {
 			fileService.createProfileDirectory();
 			fileService.createBlogDirectory();
 		};
-	}
+	} 
 }

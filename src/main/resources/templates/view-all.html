@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head data-th-replace="~{fragment/basic-fragment :: head}">
+    </head>
+<body>
+    <header data-th-replace="~{fragment/basic-fragment :: header}">
+
+    </header>
+    <nav data-th-replace="~{fragment/basic-fragment :: nav}">
+       
+    </nav>
+    <main>
+        <section>
+            <input type="search">
+            <button type="search">Search</button>
+        </section>
+
+        <section>
+            <div class="all-blog">
+                <article data-th-each="blog : *{blogs}" data-th-object="${blog}">
+           
+                    <div class="img-container">
+                        <img data-th-src="|/blog/image/*{blogId}|" alt="">
+                    </div>
+                    
+                    <div class="details-container">
+                        <p data-th-text="*{title}" class="line-clamp-2"></p>
+                    <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
+                    </div>
+                </article>
+            </div>
+            <div class="pagination">
+                <button>
+                    <span class="material-symbols-outlined">
+                    arrow_back
+                    </span>
+                </button>
+                <p>1 - 2 Pages</p>
+                <button>
+                    <span class="material-symbols-outlined">
+                    arrow_forward
+                    </span>
+                </button>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

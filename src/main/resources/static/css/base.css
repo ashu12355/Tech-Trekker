@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
+:root {
+    scroll-behavior: smooth;
+}
 *{
     margin: 0;
     padding: 0;
@@ -82,9 +85,17 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    
+    position: sticky;
+    top: 0;
+    z-index: 5; 
 }
 nav a {
     color: black;
     text-decoration: none;
+}
+.text-center {
+    text-align: center;
+}
+.text-right {
+    text-align: right;
 }

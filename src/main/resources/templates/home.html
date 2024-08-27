@@ -7,6 +7,10 @@
     
     <link rel="stylesheet" href="/css/home/recent-section.css">
     <link rel="stylesheet" href="/css/home/home.css">
+    <link rel="stylesheet" href="/css/home/frontend-section.css">
+    <link rel="stylesheet" href="/css/home/backend-section.css">
+    <link rel="stylesheet" href="/css/home/backend-section.css">
+    <link rel="stylesheet" href="/css/home/database-section.css">
 
     <header data-th-replace="~{fragment/basic-fragment :: header}">
 
@@ -31,33 +35,62 @@
         </section>
         <!-- Frontend Blogs -->
         
-        <section>
-            <article data-th-each="blog : *{frontendBlogs}" data-th-object="${blog}">
-            <h4 data-th-text="*{title}"></h4>
-            <img data-th-src="|/blog/image/*{blogId}|" alt="">
-            <br>
-            <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
-        </article>
+        <section id="frontend-section"> 
+            <h2 class="text-center">Frontend</h2>
+            <div class="frontend-blogs">
+                <article data-th-each="blog : *{frontendBlogs}" data-th-object="${blog}">
+                    <div class="image-container">
+                        <img data-th-src="|/blog/image/*{blogId}|" alt="">
+                    </div>
+                    <div class="title-container">
+                        <p data-th-text="*{title}" class="line-clamp-2"></p> 
+                    <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
+                    </div>
+                </article>
+            </div>
+            <div class="link-container text-right">
+                <a data-th-href="|/view-all?category=FRONTEND|">View All</a>
+            </div>
         </section>
 
         <!-- Backend Blogs -->
-        <section>
+        <section id="backend-section">
+            <h2 class="text-center">Backend</h2>
+           <div class="backend-blogs">
             <article data-th-each="blog : *{backendBlogs}" data-th-object="${blog}">
-            <h4 data-th-text="*{title}"></h4>
-            <img data-th-src="|/blog/image/*{blogId}|" alt="">
-            <br>
-            <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
-        </article>
+                
+                <div class="image-container">
+                    <img data-th-src="|/blog/image/*{blogId}|" alt="">
+                </div>
+               <div class="title-container">
+                <p data-th-text="*{title}"></p>
+                <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
+               </div>
+            </article>
+           </div>
+           <div class="link-container text-right">
+            <a data-th-href="|/view-all?category=BACKEND|">View All</a>
+        </div>
         </section>
 
         <!-- Database Blogs -->
-        <section>
+        <section id="database-section">
+            <h2 class="text-center">Database</h2>
+           <div class="database-blogs">
             <article data-th-each="blog : *{databaseBlogs}" data-th-object="${blog}">
-            <h4 data-th-text="*{title}"></h4>
-            <img data-th-src="|/blog/image/*{blogId}|" alt="">
-            <br>
-            <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
-        </article>
+                
+                <div class="image-container">
+                    <img data-th-src="|/blog/image/*{blogId}|" alt="">
+                </div>
+               <div class="title-container">
+                <p data-th-text="*{title}"></p>
+                <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
+               </div>
+            </article>
+           </div>
+           <div class="link-container text-right">
+            <a data-th-href="|/view-all?category=DATABASE|">View All</a>
+        </div>
         </section>
     </main>
     

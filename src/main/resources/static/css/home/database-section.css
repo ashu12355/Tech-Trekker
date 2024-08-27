@@ -1,0 +1,26 @@
+.database-blogs {
+    margin-block: 1rem;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+  }
+  .database-blogs .image-container {
+    height: 260px;
+  }
+  .database-blogs article {
+    position: relative;
+  }
+  .database-blogs .title-container {
+    padding: 1rem;
+    position: absolute;
+    background-color: #fff;
+    box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.3);
+    bottom: -1rem;
+    left: 1rem;
+    right: 1rem;
+    height: 100px;
+    display: grid;
+    grid-template-rows: repeat(2,1fr);
+    gap: 0.5rem;
+    border-radius: 0.8rem;
+  }

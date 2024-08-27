@@ -30,14 +30,14 @@ public class TechTrekkerController {
     @GetMapping({"/","home"})
     public String home(Model model) {
         var recentBlogs = converBlogsToBasic(service.getTop5Blogs());
-       var backendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.FRONTEND, 2));
-       var frontendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.BACKEND, 3));
-       var databaseBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.DATABASE, 1));
+       var backendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.FRONTEND,6));
+       var frontendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.BACKEND, 4));
+       var databaseBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.DATABASE, 6));
 
        var homePageResponse = new HomePageResponse();
        homePageResponse.setRecentBlogs(recentBlogs);
        homePageResponse.setBackendBlogs(backendBlogs);
-       homePageResponse.setFrontendBlogs(backendBlogs);
+       homePageResponse.setFrontendBlogs(frontendBlogs);
        homePageResponse.setDatabaseBlogs(databaseBlogs);
        
        model.addAttribute("response", homePageResponse);
@@ -76,6 +76,13 @@ public class TechTrekkerController {
         model.addAttribute("blog",BlogMapper.convertBlogToResponse(blog));
         return "blog-details";
 
+    }
+    @GetMapping("/view-all")
+    public String viewAll(@RequestParam BlogCategory category, Model model) {
+        var blogs = service.limitedBlogOfCategory(category, 5);
+        var blogResponse = blogs.stream().map(BlogMapper::convertBlogToResponse).toList();
+        model.addAttribute("blogs", blogResponse);
+        return "view-all";
     }
 
     
