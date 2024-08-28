@@ -31,7 +31,7 @@ public class TechTrekkerController {
     public String home(Model model) {
         var recentBlogs = converBlogsToBasic(service.getTop5Blogs());
        var backendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.FRONTEND,6));
-       var frontendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.BACKEND, 4));
+       var frontendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.BACKEND, 8));
        var databaseBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.DATABASE, 6));
 
        var homePageResponse = new HomePageResponse();

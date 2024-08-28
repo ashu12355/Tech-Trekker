@@ -1,101 +1,123 @@
-@import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap");
 :root {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 body {
-    font-family: "Baskervville SC", serif;
-    background-color: #F1FAFF;
+  font-family: "Baskervville SC", serif;
+  background-color: #f1faff;
 }
 img {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 }
 header {
-    background-color: #f1f9f6;
-    box-shadow: 10px 20px 20px rgba(0,0,0,0.25);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
+  background-color: #f1f9f6;
+  box-shadow: 10px 20px 20px rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
 }
-
-
 
 .links menu::after {
-    content: '';
-    display: block;
-    width: 30px;
-    height: 30px;
-    background-color: white;
-    position: absolute;
-    right: 0.5rem;
-    top: -0.96rem;
-    rotate: 45deg;
-
+  content: "";
+  display: block;
+  width: 30px;
+  height: 30px;
+  background-color: white;
+  position: absolute;
+  right: 0.5rem;
+  top: -0.96rem;
+  rotate: 45deg;
 }
 .text-color-blue {
-    color: royalblue;
+  color: royalblue;
 }
 .links {
-    position: relative;
+  position: relative;
 }
 .links menu {
-    width: 200px;
-    padding:0.5rem 1rem;
-    position: absolute;
-    right: 0;
-    z-index: 5;
-    top:3rem;
-    box-shadow: -10px -10px 20px rgba(0,0,0,0.25);
-    background-color: white;
-    list-style: none;
-    display: grid;
-    gap: 0.5rem;
+  width: 200px;
+  padding: 0.5rem 1rem;
+  position: absolute;
+  right: 0;
+  z-index: 5;
+  top: 3rem;
+  box-shadow: -10px -10px 20px rgba(0, 0, 0, 0.25);
+  background-color: white;
+  list-style: none;
+  display: grid;
+  gap: 0.5rem;
 }
 
 .logo-link {
-    color: inherit;
-    text-decoration: none;
+  color: inherit;
+  text-decoration: none;
 }
 header button {
-    background-color: transparent;
-    outline: none;
-    border-width: 1px;
-    padding-inline: 0.5rem ;
-    border-radius: 0.3rem;
-    display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 0.3rem;
-   cursor: pointer;
+  background-color: transparent;
+  outline: none;
+  border-width: 1px;
+  padding-inline: 0.5rem;
+  border-radius: 0.3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.3rem;
+  cursor: pointer;
 }
 
 .d-none {
-    display: none !important;
+  display: none !important;
 }
 
 nav {
-    margin-block: 1rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    position: sticky;
-    top: 0;
-    z-index: 5; 
+  margin-block: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 2;
 }
 nav a {
-    color: black;
-    text-decoration: none;
+  color: black;
+  text-decoration: none;
 }
 .text-center {
-    text-align: center;
+  text-align: center;
 }
 .text-right {
-    text-align: right;
+  text-align: right;
 }
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+footer {
+  background-color: royalblue;
+  color: #fff;
+  padding-block: 1rem;
+  text-align: center;
+}
+
+.basic-layout {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto;
+}
+
+.basic-3-layout {
+    min-height: 100dvh;
+    display: grid;
+    grid-template-rows: auto  1fr auto;
+  }
+  

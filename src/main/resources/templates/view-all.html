@@ -2,7 +2,8 @@
 <html lang="en">
     <head data-th-replace="~{fragment/basic-fragment :: head}">
     </head>
-<body>
+<body class="basic-layout">
+    <link rel="stylesheet" href="/css/view-all.css">
     <header data-th-replace="~{fragment/basic-fragment :: header}">
 
     </header>
@@ -10,12 +11,19 @@
        
     </nav>
     <main>
-        <section>
-            <input type="search">
-            <button type="search">Search</button>
+        <section class="search-section">
+            <input type="search" placeholder="Search For Blogs">
+            <button type="search"
+            class="button-85">
+            <span class="material-symbols-outlined">
+                Search
+            </span>
+              Search
+            </button>
+            
         </section>
 
-        <section>
+        <section class="all-blog">
             <div class="all-blog">
                 <article data-th-each="blog : *{blogs}" data-th-object="${blog}">
            
@@ -24,7 +32,8 @@
                     </div>
                     
                     <div class="details-container">
-                        <p data-th-text="*{title}" class="line-clamp-2"></p>
+                        <h4 data-th-text="*{title}"></h4>
+                        <p data-th-text="*{description}"></p>
                     <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
                     </div>
                 </article>
@@ -44,5 +53,8 @@
             </div>
         </section>
     </main>
+    <footer data-th-replace="~{fragment/basic-fragment::footer}">
+
+    </footer>
 </body>
 </html>

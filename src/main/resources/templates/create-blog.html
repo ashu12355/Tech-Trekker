@@ -2,14 +2,11 @@
 <html lang="en">
 <head data-th-replace="~{fragment/basic-fragment :: head}">
 </head>
-<body>
+<body class="basic-3-layout">
     <link rel="stylesheet" href="/css/create-blog.css">
     <header data-th-replace="~{fragment/basic-fragment :: header}">
 
     </header>
-    <nav data-th-replace="~{fragment/basic-fragment :: nav}">
-
-    </nav>
     <section>
         <h2>Create New Blog</h2>
         <hr>
@@ -49,10 +46,12 @@
             </div>
         </form>
     </section>
+   
     <script src="/js/create-blog.js">
         
     </script>
-
+ 
 </body>
 
+<footer data-th-replace="~{fragment/basic-fragment::footer}"></footer>
 </html>

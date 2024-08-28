@@ -9,7 +9,7 @@
    
     <link rel="stylesheet" href="/css/base.css">
 </head>
-<body>
+<body class="basic-layout">
     <header data-th-fragment="header" >
       <a href="/home" class="logo-link">
         <h1><span class="text-color-blue">Tech</span>Trekker</h1>
@@ -32,10 +32,13 @@
     </header>
 
     <nav data-th-fragment="nav">
-        <a href="#">Home</a>
-        <a href="#frontend-section">Frontend</a>
-        <a href="#backend-section">Backend</a>
-        <a href="#database-section">Database</a>
+        <a href="/home">Home</a>
+        <a href="/home#frontend-section">Frontend</a>
+        <a href="/home#backend-section">Backend</a>
+        <a href="/home#database-section">Database</a>
     </nav>
+    <footer data-th-fragment="footer">
+        <p>All Right Reserved Copyright © Ashutosh Sharma </p>
+    </footer>
     </body>
     </html>

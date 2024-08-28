@@ -2,11 +2,9 @@
 <html lang="en">
 <head data-th-replace="~{fragment/basic-fragment :: head}">   
 </head>
-<body>
+<body class="basic-3-layout">
     <header data-th-replace="~{fragment/basic-fragment :: header}">
     </header>
-    <nav data-th-replace="~{fragment/basic-fragment :: nav}">    
-    </nav>
     <section>
         <form action="/signup" method="post" enctype="multipart/form-data">
         <div class="form-group">
@@ -34,6 +32,8 @@
         </div>
         </form>
     </section>
-    
+    <footer data-th-replace="~{fragment/basic-fragment::footer}">
+
+    </footer>
 </body>
 </html>
