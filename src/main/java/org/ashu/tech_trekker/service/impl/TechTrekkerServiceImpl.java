@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TechTrekkerServiceImpl implements TechTrekkerService {
     private final WriterInfoRepository writerRepository;
-    private final BlogRepository blogrepository;
+    private final BlogRepository blogRepository;
     private final FileService fileService;
 
     @Override
@@ -30,16 +30,16 @@ public class TechTrekkerServiceImpl implements TechTrekkerService {
         public void createBlog(Blog blog, MultipartFile file) {
             String fileName = fileService.uploadBlogBanner(file);
             blog.setBanner(fileName);
-            blogrepository.save(blog);
+            blogRepository.save(blog);
             
         }
         @Override
         public List<Blog> getBlogs() {
-            return blogrepository.findAll(); // it gives all the data
+            return blogRepository.findAll(); // it gives all the data
         }
         @Override
         public Blog getBlogById(String id) {
-           return blogrepository.findById(id).orElseThrow();
+           return blogRepository.findById(id).orElseThrow();
         }
 
         @Override
@@ -50,11 +50,30 @@ public class TechTrekkerServiceImpl implements TechTrekkerService {
         }
         @Override
         public List<Blog> getTop5Blogs() {
-            return blogrepository.findTop5ByOrderByTitle();
+            return blogRepository.findTop5ByOrderByTitle();
         }
         @Override
         public List<Blog> limitedBlogOfCategory(BlogCategory category, int limit) {
-        return blogrepository.findByCategory(category , PageRequest.of(0,limit));
+        return blogRepository.findByCategory(category , PageRequest.of(0,limit));
+        }
+        @Override
+        public List<Blog> limitedBlogOfCategory(BlogCategory category, int page, int limit) {
+            
+            return blogRepository.findByCategory(category , PageRequest.of(page-1,limit));
+        }
+        
+        @Override
+        public int countBlogs(BlogCategory blogCategory) {
+            return (int) blogRepository.countBycategory(blogCategory);
+        }
+        @Override
+        public List<Blog> blogsOfCategoryAndTitle(BlogCategory category, String title, int page, int limit) {
+            return blogRepository.findByCategoryAndTitleContaining(category , 
+           title, PageRequest.of(page - 1 ,limit));
+        }
+        @Override
+        public int countBlogsOfTitle(BlogCategory blogCategory, String title) {
+            return (int) blogRepository.countByCategoryAndTitleContaining(blogCategory,title);
         }
     }
 

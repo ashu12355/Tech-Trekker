@@ -21,5 +21,11 @@ public interface TechTrekkerService {
     List<Blog> getTop5Blogs();
 
     List<Blog> limitedBlogOfCategory(BlogCategory category, int limit);
+    List<Blog> limitedBlogOfCategory(BlogCategory category,int page ,int limit);
+
+    int countBlogs(BlogCategory blogCategory);
+
+    List<Blog> blogsOfCategoryAndTitle(BlogCategory category , String title,  int page , int limit);
+    int countBlogsOfTitle(BlogCategory blogCategory , String title);
     
 }

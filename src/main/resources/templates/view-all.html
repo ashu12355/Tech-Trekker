@@ -4,6 +4,7 @@
     </head>
 <body class="basic-layout">
     <link rel="stylesheet" href="/css/view-all.css">
+    <script src="/js/view-all.js"></script>
     <header data-th-replace="~{fragment/basic-fragment :: header}">
 
     </header>
@@ -12,7 +13,8 @@
     </nav>
     <main>
         <section class="search-section">
-            <input type="search" placeholder="Search For Blogs">
+            <input type="search" placeholder="Search For Blogs"
+            data-th-value="${response.searchTerm}">
             <button type="search"
             class="button-85">
             <span class="material-symbols-outlined">
@@ -25,7 +27,7 @@
 
         <section class="all-blog">
             <div class="all-blog">
-                <article data-th-each="blog : *{blogs}" data-th-object="${blog}">
+                <article data-th-each="blog : ${response.blogs}" data-th-object="${blog}">
            
                     <div class="img-container">
                         <img data-th-src="|/blog/image/*{blogId}|" alt="">
@@ -39,13 +41,16 @@
                 </article>
             </div>
             <div class="pagination">
-                <button>
+                <button data-th-disabled="${response.currentPage} == 1"
+                    data-th-onclick="|onPageChange(${response.currentPage},'-')|">
                     <span class="material-symbols-outlined">
                     arrow_back
                     </span>
                 </button>
-                <p>1 - 2 Pages</p>
-                <button>
+                <p data-th-text="|${response.currentPage} - ${response.totalPage} pages|"></p>
+                <button data-th-disabled="${response.currentPage} == ${response.totalPage}"
+                data-th-onclick="|onPageChange(${response.currentPage},'+')|"
+                >
                     <span class="material-symbols-outlined">
                     arrow_forward
                     </span>
