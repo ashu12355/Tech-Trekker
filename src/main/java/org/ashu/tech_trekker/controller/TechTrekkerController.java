@@ -2,12 +2,17 @@ package org.ashu.tech_trekker.controller;
 
 
 import static org.ashu.tech_trekker.mapper.BlogMapper.*;
+
+import java.util.List;
+
 import org.ashu.tech_trekker.constant.BlogCategory;
 import org.ashu.tech_trekker.dto.BlogRequest;
 import org.ashu.tech_trekker.dto.HomePageResponse;
+import org.ashu.tech_trekker.dto.ViewAllResponse;
 import org.ashu.tech_trekker.dto.WriterRequest;
 import org.ashu.tech_trekker.mapper.BlogMapper;
 import org.ashu.tech_trekker.mapper.WriterMapper;
+import org.ashu.tech_trekker.model.Blog;
 import org.ashu.tech_trekker.service.TechTrekkerService;
 
 import org.springframework.stereotype.Controller;
@@ -78,11 +83,45 @@ public class TechTrekkerController {
 
     }
     @GetMapping("/view-all")
-    public String viewAll(@RequestParam BlogCategory category, Model model) {
-        var blogs = service.limitedBlogOfCategory(category, 5);
-        var blogResponse = blogs.stream().map(BlogMapper::convertBlogToResponse).toList();
-        model.addAttribute("blogs", blogResponse);
+    public String viewAll(@RequestParam BlogCategory category,
+            @RequestParam(required = false ,defaultValue = "1") int pageNum,
+            @RequestParam(required = false) String searchTerm,
+            Model model) {
+                final int limit = 5;
+                
+                List<Blog> blogs;
+
+                int totalBlogs;
+                
+                if(searchTerm == null) {
+                    blogs = service.limitedBlogOfCategory(category,pageNum, limit);
+                    totalBlogs =  service.countBlogs(category);
+                } else {
+                    blogs = service.blogsOfCategoryAndTitle(category, searchTerm, pageNum, limit);
+                    totalBlogs =  service.countBlogsOfTitle(category,searchTerm);
+                }
+
+
+        // var blogs = service.limitedBlogOfCategory(category,pageNum, limit);
+        var blogResponse = blogs.stream()
+                .map(BlogMapper::convertBlogToResponse).toList();
+
+    
+
+        var viewAllResponse = new ViewAllResponse();
+        viewAllResponse.setBlogs(blogResponse);
+        viewAllResponse.setCurrentPage(pageNum);
+        viewAllResponse.setTotalPage(getTotalPage(totalBlogs, limit));
+        viewAllResponse.setSearchTerm(searchTerm);
+
+
+        model.addAttribute("response", viewAllResponse);
         return "view-all";
+    }
+    private int getTotalPage(int totalBlogs , int limit) {
+        return (totalBlogs % limit == 0) 
+        ? (totalBlogs / limit) 
+        : (totalBlogs /limit) + 1 ;
     }
 
     
