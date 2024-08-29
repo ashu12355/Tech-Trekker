@@ -58,7 +58,7 @@ public class TechTrekkerServiceImpl implements TechTrekkerService {
         }
         @Override
         public List<Blog> limitedBlogOfCategory(BlogCategory category, int page, int limit) {
-            
+            blogRepository.count();
             return blogRepository.findByCategory(category , PageRequest.of(page-1,limit));
         }
         

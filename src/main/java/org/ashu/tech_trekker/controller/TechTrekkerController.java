@@ -112,14 +112,15 @@ public class TechTrekkerController {
         viewAllResponse.setBlogs(blogResponse);
         viewAllResponse.setCurrentPage(pageNum);
         viewAllResponse.setTotalPage(getTotalPage(totalBlogs, limit));
-        viewAllResponse.setSearchTerm(searchTerm);
+        // viewAllResponse.setSearchTerm(searchTerm);
 
 
         model.addAttribute("response", viewAllResponse);
         return "view-all";
     }
     private int getTotalPage(int totalBlogs , int limit) {
-        return (totalBlogs % limit == 0) 
+        int result = totalBlogs % limit;
+        return (result == 0) 
         ? (totalBlogs / limit) 
         : (totalBlogs /limit) + 1 ;
     }
