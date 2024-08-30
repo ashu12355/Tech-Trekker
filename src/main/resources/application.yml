@@ -1,8 +1,11 @@
 server:
   port: 1200
+
 spring:
+
   application:
     name: tech-trekker
+    
   datasource:
     url: "jdbc:mysql://localhost/blog"
     username: "root"
@@ -20,4 +23,6 @@ upload:
   file:
     profile: "profile_images"
     blog:
-      banner: "blog_banner_images"        
+      banner: "blog_banner_images"
+
+

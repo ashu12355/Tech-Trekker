@@ -4,7 +4,7 @@ main {
   display: grid;
   gap: 1.5rem;
 }
-.search-section {
+.search-section form {
   margin-top: 2rem;
   display: flex;
   align-items: center;
@@ -19,7 +19,7 @@ main {
 .search-section button {
   height: 100%;
   border: none;
-  padding-inline: 2rem;
+  padding:0.5rem 2rem;
   display: flex;
   align-items: center;
     background-color: #0a6bff;

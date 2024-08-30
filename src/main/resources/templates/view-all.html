@@ -13,15 +13,19 @@
     </nav>
     <main>
         <section class="search-section">
-            <input type="search" placeholder="Search For Blogs"
+
+            <form action="/view-all-search" method="post">
+                <input type="search" placeholder="Search For Blogs" name="searchTerm"
             data-th-value="${response.searchTerm}">
-            <button type="search"
-            class="button-85">
+
+            <input type="hidden" name="category" data-th-value="${param.category}">
+            <button type="submit">
             <span class="material-symbols-outlined">
                 Search
             </span>
               Search
             </button>
+            </form>
             
         </section>
 

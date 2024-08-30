@@ -125,5 +125,14 @@ public class TechTrekkerController {
         : (totalBlogs /limit) + 1 ;
     }
 
+    @PostMapping("/view-all-search")
+    public String viewAllSearch(@RequestParam BlogCategory category ,@RequestParam String searchTerm){
+        if(searchTerm == null || searchTerm.isEmpty() || searchTerm.isBlank()){
+            return "redirect:/view-all?category=" +category;
+        }
+
+        return "redirect:/view-all?category=" + category + "&searchTerm=" + searchTerm;
+    }
+
     
 }
