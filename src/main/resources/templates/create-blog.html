@@ -2,7 +2,7 @@
 <html lang="en">
 <head data-th-replace="~{fragment/basic-fragment :: head}">
 </head>
-<body class="basic-3-layout">
+<body>
     <link rel="stylesheet" href="/css/create-blog.css">
     <header data-th-replace="~{fragment/basic-fragment :: header}">
 
@@ -10,7 +10,7 @@
     <section>
         <h2>Create New Blog</h2>
         <hr>
-        <form action="/create-blog" method="post" enctype="multipart/form-data">
+        <form action="/writter/create-blog" method="post" enctype="multipart/form-data">
 
             
 
@@ -40,9 +40,10 @@
                 
                 <input type="file" id="banner" name="banner" required>
             </div>
+            <input type="hidden" name="_csrf" data-th-value="${_csrf.token}">
 
             <div>
-                <input type="submit" />
+                <input type="submit"/>
             </div>
         </form>
     </section>

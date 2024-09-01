@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head data-th-replace="~{fragment/basic-fragment :: head}">
+</head>
+
+<body>
+    <header data-th-replace="~{fragment/basic-fragment :: header}">
+    </header>
+
+    <section>
+        <form action="/login" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" name="pass" required>
+            </div>
+
+
+            <div>
+                <input type="submit">
+            </div>
+        </form>
+    </section>
+</body>
+
+</html>

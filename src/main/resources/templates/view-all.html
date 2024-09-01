@@ -14,7 +14,7 @@
     <main>
         <section class="search-section">
 
-            <form action="/view-all-search" method="post">
+            <form action="/tech-trekker/view-all-search" method="post">
                 <input type="search" placeholder="Search For Blogs" name="searchTerm"
             data-th-value="${response.searchTerm}">
 
@@ -40,7 +40,7 @@
                     <div class="details-container">
                         <h4 data-th-text="*{title}"></h4>
                         <p data-th-text="*{description}"></p>
-                    <a data-th-href="|/blog-details?id=*{blogId}|">Read More</a>
+                    <a data-th-href="|/tech-trekker/blog-details?id=*{blogId}|">Read More</a>
                     </div>
                 </article>
             </div>
