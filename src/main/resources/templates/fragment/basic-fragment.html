@@ -24,8 +24,21 @@
                             </span>
                 </button>
                 <menu class="d-none">
-                    <li><a href="/writter/create-blog">Create</a></li>
-                    <li><a href="/tech-trekker/signup">SignUp</a></li>
+                    <li><a href="/writter/create-blog">
+                        <span class="material-symbols-outlined">
+                            draw
+                            </span>Create</a></li>
+                    <li data-sec-authorize="!isAuthenticated()"><a href="/tech-trekker/signup">
+                        <span class="material-symbols-outlined">
+                            person_add
+                            </span>
+                        SignUp</a></li>
+                    <li data-sec-authorize="!isAuthenticated()"><a href="/logout">
+                        <span class="material-symbols-outlined">
+                            logout
+                            </span>Logout</a></li>
+                    
+                    
                    
                 </menu>
      </div>

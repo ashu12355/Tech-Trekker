@@ -1,0 +1,15 @@
+.blog-section {
+    width: 90%;
+    margin: 1rem auto;
+}
+
+.blog-section article {
+    display: grid;
+    gap: 1rem;
+}
+
+.blog-section article img {
+    height: 400px;
+    object-fit: fill;
+    object-position: center;
+}

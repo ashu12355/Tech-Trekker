@@ -4,15 +4,14 @@
 </head>
 <body>
     <link rel="stylesheet" href="/css/create-blog.css">
+    <link rel="stylesheet" href="/css/form.css">
     <header data-th-replace="~{fragment/basic-fragment :: header}">
 
     </header>
-    <section>
-        <h2>Create New Blog</h2>
+    <section class="form-section">
+        <h2 class="text-center">Create New Blog</h2>
         <hr>
         <form action="/writter/create-blog" method="post" enctype="multipart/form-data">
-
-            
 
             <div class="form-group">
                 <label for="title">Title</label>
@@ -54,5 +53,4 @@
  
 </body>
 
-<footer data-th-replace="~{fragment/basic-fragment::footer}"></footer>
 </html>

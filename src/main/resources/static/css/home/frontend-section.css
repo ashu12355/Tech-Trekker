@@ -3,6 +3,19 @@
     display: grid;
     grid-template-columns: repeat(4,1fr);
     gap: 1rem;
+    scale: 0;
+    opacity: 0;
+    animation: zoom-in forwards;
+    animation-timeline: view();
+    amimation-range-end:100px
+}
+
+@keyframes zoom-in {
+    to {
+        opacity: 1;
+        scale: 1;
+    }
+    
 }
 .frontend-blogs .image-container {
      height: 250px;

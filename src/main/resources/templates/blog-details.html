@@ -4,6 +4,7 @@
     
 </head>
 <body class="basic-layout">
+    <link rel="stylesheet" href="/css/blog-details.css">
     <header data-th-replace="~{fragment/basic-fragment :: header}">
 
     </header>
@@ -11,7 +12,7 @@
        
     </nav>
     <main>
-        <section>
+        <section class="blog-section">
             <article data-th-object="${blog}">
             <h4 data-th-text="*{title}"></h4>
             <img data-th-src="|/blog/image/*{blogId}|" alt="">

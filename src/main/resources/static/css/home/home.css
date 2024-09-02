@@ -1,3 +1,7 @@
+:root {
+    scroll-behavior: smooth;
+}
+
 section {
     width: clamp(300px,90%,1120px);
     margin: 1rem auto;

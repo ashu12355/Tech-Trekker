@@ -85,9 +85,22 @@ nav {
   position: sticky;
   top: 0;
   z-index: 2;
+  animation: color-change forwards;
+  animation-timeline: scroll();
+  animation-range-end:200px ;
+}
+
+@keyframes color-change {
+  to {
+    background-color:royalblue;
+    font-size: small;
+    color: #fff;
+    padding-block: 0.5rem;
+  }
+  
 }
 nav a {
-  color: black;
+  color: inherit;
   text-decoration: none;
 }
 .text-center {
@@ -120,4 +133,18 @@ footer {
     display: grid;
     grid-template-rows: auto  1fr auto;
   }
-  
+ menu li {
+  color: gray;
+  }
+  menu li:hover {
+    color: blue;
+    transition: 2.5ms;
+  }
+menu li a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: inherit;
+}
