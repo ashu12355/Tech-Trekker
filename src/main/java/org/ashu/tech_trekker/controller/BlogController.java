@@ -32,14 +32,14 @@ public class BlogController {
     @GetMapping({"/home"})
     public String home(Model model) {
        var recentBlogs = converBlogsToBasic(service.getTop5Blogs());
-       var backendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.FRONTEND,6));
-       var frontendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.BACKEND, 8));
+       var backendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.BACKEND,6));
+       var frontendBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.FRONTEND, 8));
        var databaseBlogs = converBlogsToBasic(service.limitedBlogOfCategory(BlogCategory.DATABASE, 6));
 
        var homePageResponse = new HomePageResponse();
        homePageResponse.setRecentBlogs(recentBlogs);
-       homePageResponse.setBackendBlogs(backendBlogs);
        homePageResponse.setFrontendBlogs(frontendBlogs);
+       homePageResponse.setBackendBlogs(backendBlogs);
        homePageResponse.setDatabaseBlogs(databaseBlogs);
        
        model.addAttribute("response", homePageResponse);

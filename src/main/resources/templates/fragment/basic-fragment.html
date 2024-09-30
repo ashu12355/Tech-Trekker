@@ -28,12 +28,14 @@
                         <span class="material-symbols-outlined">
                             draw
                             </span>Create</a></li>
-                    <li data-sec-authorize="!isAuthenticated()"><a href="/tech-trekker/signup">
+                    <li data-sec-authorize="!isAuthenticated()">
+                        <a href="/tech-trekker/signup">
                         <span class="material-symbols-outlined">
                             person_add
                             </span>
                         SignUp</a></li>
-                    <li data-sec-authorize="!isAuthenticated()"><a href="/logout">
+                    <li data-sec-authorize="isAuthenticated()">
+                        <a href="/logout">
                         <span class="material-symbols-outlined">
                             logout
                             </span>Logout</a></li>
